@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Agregar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFFF"
+            android:drawableTop="@drawable/hom"
+            android:text="inicio" />
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFFF"
+            android:drawableTop="@drawable/agre"
+            android:text="Agregar" />
+
+        <Button
+            android:id="@+id/btnMostrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFFF"
+            android:drawableTop="@drawable/ic_list_black_24dp"
+            android:text="mi lista" />
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFFF"
+            android:drawableTop="@drawable/bus"
+            android:text="buscar" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAgregarTarea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/azul"
+        android:drawableLeft="@drawable/ic_add_box_black_24dp"
+        android:text="Agregar tareas"
+        android:textColor="#2196F3"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnAgregarProyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/verde"
+        android:drawableLeft="@drawable/ic_add_to_photos_black_24dp"
+        android:text="agregar proyecto"
+        android:textColor="#8BC34A"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnAgregarExamen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/amarillo"
+        android:drawableLeft="@drawable/ic_note_add_black_24dp"
+        android:text="agregar examenes"
+        android:textColor="#FFC107"
+        android:textSize="20sp" />
+</LinearLayout>

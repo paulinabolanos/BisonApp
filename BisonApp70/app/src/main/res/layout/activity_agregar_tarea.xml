@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AgregarTarea">
+
+    <EditText
+        android:id="@+id/edTxtNombreT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edTxtMateriaT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Materia"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edTxtDescripcionT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Descripcion"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edTxtDiaT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Dia"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edTxtMesT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Mes"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edTxtAnoT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ano"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edTxtHoraT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Hora"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnGuardarT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="guardar" />
+</LinearLayout>
