@@ -35,7 +35,7 @@ public class Buscar extends AppCompatActivity {
         edTxtAnoB = findViewById(R.id.edTxtAnoB);
         edTxtHoraB = findViewById(R.id.edTxtHoraB);
 
-        txtVwActividadB = findViewById(R.id.txtVwActividad);
+        txtVwActividadB = findViewById(R.id.txtVwActividadB);
 
         final DBSQLite objDB = new DBSQLite(getApplicationContext());
 

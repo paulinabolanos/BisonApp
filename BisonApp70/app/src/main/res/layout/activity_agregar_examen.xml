@@ -12,30 +12,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Nombre"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edTxtMateriaE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Materia"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edTxtDescripcionE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Descripción"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edTxtDiaE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Día"
         android:inputType="number" />
 
     <EditText
@@ -43,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Mes"
         android:inputType="number" />
 
     <EditText
@@ -50,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Año"
         android:inputType="number" />
 
     <EditText
@@ -57,11 +60,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number" />
+        android:hint="Hora"
+        android:inputType="time" />
 
     <Button
         android:id="@+id/btnGuardarE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Agregar" />
+
+    <Button
+        android:id="@+id/btnGuardarN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar y notificar" />
 </LinearLayout>
