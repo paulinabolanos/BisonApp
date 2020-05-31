@@ -1,10 +1,13 @@
 package com.example.bisonapp70;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,12 +16,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class AgregarExamen extends AppCompatActivity {
-    EditText edTxtNombreE, edTxtMateriaE, edTxtDescripcionE, edTxtDiaE, edTxtMesE, edTxtAnoE, edTxtHoraE;
+    EditText edTxtNombreE, edTxtMateriaE, edTxtDescripcionE, edTxtDiaE, edTxtMesE, edTxtAnoE, edTxtHoraE, edTxtMinE;
     Button btnGuardarE;
     Button btnGuardarN;
+    NotificationManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,12 @@ public class AgregarExamen extends AppCompatActivity {
         edTxtDiaE = findViewById(R.id.edTxtDiaE);
         edTxtMesE = findViewById(R.id.edTxtMesE);
         edTxtAnoE = findViewById(R.id.edTxtAnoE);
-        edTxtHoraE = findViewById(R.id.edTxtHoraE);
-        btnGuardarE = findViewById(R.id.btnGuardarE);
+        edTxtHoraE = findViewById(R.id.edTxtHoraT);
+        btnGuardarE = findViewById(R.id.btnGuardarT);
         btnGuardarN = findViewById(R.id.btnGuardarN);
+        edTxtMinE = findViewById(R.id.edTxtMinT);
+
+        manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         final DBSQLite objDB = new DBSQLite(getApplicationContext());
 
@@ -67,9 +73,11 @@ public class AgregarExamen extends AppCompatActivity {
                 }
             }
         });
+
         btnGuardarN.setOnClickListener(new View.OnClickListener() {
             String noControl = getIntent().getStringExtra("noControle");
             String actividad = "examen";
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
 
@@ -77,42 +85,35 @@ public class AgregarExamen extends AppCompatActivity {
                         edTxtDescripcionE.getText().toString().equals("")||
                         edTxtDiaE.getText().toString().equals("")||
                         edTxtMesE.getText().toString().equals("")||
-                        edTxtAnoE.getText().toString().equals("")||edTxtHoraE.getText().toString().equals("")){
+                        edTxtAnoE.getText().toString().equals("")||edTxtHoraE.getText().toString().equals("")||edTxtMinE.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(), "Faltan campos por llenar", Toast.LENGTH_SHORT).show();
-                }else{
-                    objDB.agregarActividad( edTxtNombreE.getText().toString(), noControl,edTxtMateriaE.getText().toString(),
+                }else
+                    {
+                    objDB.agregarActividad(edTxtNombreE.getText().toString(), noControl,edTxtMateriaE.getText().toString(),
                             edTxtDescripcionE.getText().toString(), actividad, edTxtDiaE.getText().toString(), edTxtMesE.getText().toString()
-                            , edTxtAnoE.getText().toString(), edTxtHoraE.getText().toString());
+                            , edTxtAnoE.getText().toString(), edTxtHoraE.getText().toString()) ;
                     Toast.makeText(getApplicationContext(), "Se agregó correctamente", Toast.LENGTH_SHORT).show();
-
 
                     int dia = Integer.parseInt(edTxtDiaE.getText().toString());
                     int mes = (Integer.parseInt(edTxtMesE.getText().toString()))-1; //enero empieza en 0
                     int ano = Integer.parseInt(edTxtAnoE.getText().toString());
+                    int hora = Integer.parseInt(edTxtHoraE.getText().toString());
+                    int min = Integer.parseInt(edTxtMinE.getText().toString());
 
-                    Toast.makeText(getApplicationContext(), "Día: "+dia+" Mes: "+mes+" Año: "+ano, Toast.LENGTH_LONG).show();
 
                     Calendar calendar = Calendar.getInstance();
-                    calendar.set(Calendar.YEAR, ano);
-                    calendar.set(Calendar.MONTH, mes);
-                    calendar.set(Calendar.DAY_OF_MONTH, dia);
-                    calendar.set(Calendar.HOUR_OF_DAY, 04);
-                    calendar.set(Calendar.MINUTE, 24);
 
-                    if (calendar.getTime().compareTo(new Date()) < 0)
-                        calendar.add(Calendar.DAY_OF_MONTH, 1);
+                    calendar.set(ano,mes,dia,hora,min);
+                    Log.wtf("Verificacion","Año: "+ano+" Mes: "+mes+" Dia: "+dia+" Hora: "+hora+" Minutos: "+min);
+                    Long noti = (calendar.getTimeInMillis());
 
-                    Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    Intent intent = new Intent(AgregarExamen.this, NotificationReceiverE.class);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(AgregarExamen.this, 0, intent, 0);
+
                     AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    alarmManager.set(AlarmManager.RTC_WAKEUP, noti ,pendingIntent);
 
-                    if (alarmManager != null) {
-                        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
-
-                    }
-
-                    NotificationHelper notificationHelper = new NotificationHelper(getBaseContext());
-                    notificationHelper.createNotification();
+                    Toast.makeText(getApplicationContext(),"Se ha configurado el recordatorio", Toast.LENGTH_SHORT).show();
 
                     edTxtNombreE.setText("");
                     edTxtMateriaE.setText("");

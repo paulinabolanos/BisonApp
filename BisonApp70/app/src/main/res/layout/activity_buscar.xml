@@ -61,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Introduce nombre de la actividad"
+            android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/btnBuscarActividad"
@@ -77,29 +77,30 @@
         android:id="@+id/txtVwActividadB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Datos:" />
 
     <EditText
         android:id="@+id/edTxtMateriaB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Materia"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edTxtDescripcionB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="Descripción"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edTxtDiaB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Dia"
         android:inputType="number" />
 
     <EditText
@@ -107,6 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Mes"
         android:inputType="number" />
 
     <EditText
@@ -114,6 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Año"
         android:inputType="number" />
 
     <EditText
@@ -121,6 +124,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Hora"
         android:inputType="number" />
 
     <LinearLayout
