@@ -15,9 +15,9 @@
         android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="177dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/imgVw"
+            android:layout_width="124dp"
+            android:layout_height="83dp"
             android:layout_marginTop="25dp"
             android:layout_weight="3"
             app:srcCompat="@drawable/ic_launcher_background" />

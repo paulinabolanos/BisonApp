@@ -1,7 +1,10 @@
 package com.example.bisonapp70;
 
+import android.widget.ImageView;
+
 public class TareasModelo {
     String actividad, nombre, materia, descripcion, dia, mes, ano, hora;
+
 
     public TareasModelo() {
     }

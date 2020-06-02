@@ -36,8 +36,8 @@ public class TareasAdaptador extends RecyclerView.Adapter<TareasAdaptador.ViewHo
             txtVwMes = itemView.findViewById(R.id.txtVwMes);
             txtVwAno = itemView.findViewById(R.id.txtVwAno);
             txtVwHora = itemView.findViewById(R.id.txtVwHora);
+            imgVw = itemView.findViewById(R.id.imgVw);
 
-            //imgVw = itemView.findViewById(R.id.imgVw);
         }
 
 
@@ -71,8 +71,14 @@ public class TareasAdaptador extends RecyclerView.Adapter<TareasAdaptador.ViewHo
         holder.txtVwAno.setText(tareaLista.get(position).getAno());
         holder.txtVwHora.setText(tareaLista.get(position).getHora());
 
-
-
+        String actividad = tareaLista.get(position).getActividad();
+        if(actividad.equals("tarea")){
+            holder.imgVw.setImageResource(R.drawable.tarea);
+        }else if (actividad.equals("proyecto")){
+            holder.imgVw.setImageResource(R.drawable.proyecto);
+        }else if (actividad.equals("examen")){
+            holder.imgVw.setImageResource(R.drawable.examen);
+        }
 
 
     }
