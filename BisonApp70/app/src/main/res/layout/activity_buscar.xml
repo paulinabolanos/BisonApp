@@ -20,6 +20,7 @@
             android:layout_weight="1"
             android:background="#FFF"
             android:drawableTop="@drawable/hom"
+
             android:text="inicio" />
 
         <Button
@@ -47,12 +48,16 @@
             android:layout_weight="1"
             android:background="#FFFF"
             android:drawableTop="@drawable/se"
+
             android:text="buscar" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="40dp"
         android:orientation="horizontal">
 
         <EditText
@@ -62,14 +67,19 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Introduce nombre de la actividad"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btnBuscarActividad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="buscar" />
+            android:background="@drawable/button"
+            android:text="buscar"
+            android:textColor="#F44336"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -77,73 +87,169 @@
         android:id="@+id/txtVwActividadB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Datos:" />
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:text="Datos:"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="40dp"
+        android:text="Materia"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edTxtMateriaB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:ems="10"
-        android:hint="Materia"
+        android:gravity="center"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:text="Descripción"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edTxtDescripcionB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:ems="10"
-        android:hint="Descripción"
+        android:gravity="center"
         android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/edTxtDiaB"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Dia"
-        android:inputType="number" />
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/edTxtMesB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Mes"
-        android:inputType="number" />
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dia"
+            android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/edTxtAnoB"
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mes"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Año"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Año"
-        android:inputType="number" />
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edTxtDiaB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edTxtMesB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edTxtAnoB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:text="Hora"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/edTxtHoraB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:ems="10"
-        android:hint="Hora"
+        android:gravity="center"
         android:inputType="number" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="40dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="editar" />
+            android:background="@drawable/boton"
+            android:text="editar"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnEliminar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="eliminar" />
+            android:background="@drawable/boton"
+            android:text="eliminar"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>
