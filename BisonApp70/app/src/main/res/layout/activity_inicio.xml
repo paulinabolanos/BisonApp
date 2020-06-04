@@ -21,7 +21,8 @@
             android:layout_weight="1"
             android:background="#FFFFFFFF"
             android:drawableTop="@drawable/ic_home_black_24dp"
-            android:text="Inicio" />
+            android:text="Inicio"
+            android:textColor="#F44336" />
 
         <Button
             android:id="@+id/btnAgregar"
@@ -30,7 +31,9 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:drawableTop="@drawable/ic_add_circle_black_24dp"
-            android:text="agregar" />
+            android:text="agregar"
+            android:textColor="#BDC3C7"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnMostrar"
@@ -39,7 +42,9 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:drawableTop="@drawable/ic_list_black_24dp"
-            android:text="mi lista" />
+            android:text="mi lista"
+            android:textColor="#BDC3C7"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnBuscar"
@@ -48,7 +53,9 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:drawableTop="@drawable/bus"
-            android:text="Buscar" />
+            android:text="Buscar"
+            android:textColor="#BDC3C7"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <CalendarView

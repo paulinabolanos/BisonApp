@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//Necesario importar las librerias para utilizar "RecyclerView"
 public class Mostrar extends AppCompatActivity {
     private RecyclerView recVw;
     private TareasAdaptador tareasAdaptador;
@@ -22,10 +23,12 @@ public class Mostrar extends AppCompatActivity {
         recVw = findViewById(R.id.recVw);
         recVw.setLayoutManager(new LinearLayoutManager(this));
 
+        //Creamos una instancia de la clase "DBSQLite" para hacer uso de los metodos de la clase
         DBSQLite db = new DBSQLite(getApplicationContext());
 
         String noControl = getIntent().getStringExtra("noControlb");
 
+        //Funcion encargada de obtener los datos de la tabla
         tareasAdaptador = new TareasAdaptador(db.mostrarTareas(noControl));
 
 
@@ -37,6 +40,7 @@ public class Mostrar extends AppCompatActivity {
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Mediante un Intent llamamos al Activity "Inicio"
                 Intent intent = new Intent(getApplicationContext(), Inicio.class);
                 startActivity(intent);
                 finish();

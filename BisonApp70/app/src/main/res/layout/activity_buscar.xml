@@ -22,7 +22,9 @@
             android:background="#FFF"
             android:drawableTop="@drawable/hom"
 
-            android:text="inicio" />
+            android:text="inicio"
+            android:textColor="#BDC3C7"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnAgregar"
@@ -31,7 +33,9 @@
             android:layout_weight="1"
             android:background="#FFF"
             android:drawableTop="@drawable/ic_add_circle_black_24dp"
-            android:text="agregar" />
+            android:text="agregar"
+            android:textColor="#BDC3C7"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnMostrar"
@@ -40,7 +44,9 @@
             android:layout_weight="1"
             android:background="#FFF"
             android:drawableTop="@drawable/ic_list_black_24dp"
-            android:text="mi lista" />
+            android:text="mi lista"
+            android:textColor="#BDC3C7"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button5"
@@ -50,7 +56,8 @@
             android:background="#FFFF"
             android:drawableTop="@drawable/se"
 
-            android:text="buscar" />
+            android:text="buscar"
+            android:textColor="#F44336" />
     </LinearLayout>
 
     <LinearLayout

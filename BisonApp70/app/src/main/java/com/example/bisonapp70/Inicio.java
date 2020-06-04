@@ -31,7 +31,8 @@ public class Inicio extends AppCompatActivity {
         btnMostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                /*Mediante un Intent llamamos al Activity "Mostrar" para ver las actividades
+                que se van agregando a la base de datos*/
                 Intent intent = new Intent(getApplicationContext(), Mostrar.class);
                 startActivity(intent);
             }
