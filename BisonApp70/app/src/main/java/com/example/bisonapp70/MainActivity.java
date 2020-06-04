@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 if(objDB.login(edTxtNoControl.getText().toString(), edTxtPassword.getText().toString()) != 0){
                     Intent intent = new Intent(getApplicationContext(), Inicio.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_SHORT).show();
 
                     Intent intent2 = new Intent(getApplicationContext(), AgregarTarea.class);

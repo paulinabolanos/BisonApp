@@ -27,6 +27,7 @@ public class Agregar extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AgregarTarea.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -35,6 +36,7 @@ public class Agregar extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AgregarProyecto.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -43,6 +45,7 @@ public class Agregar extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AgregarExamen.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnInicio.setOnClickListener(new View.OnClickListener() {

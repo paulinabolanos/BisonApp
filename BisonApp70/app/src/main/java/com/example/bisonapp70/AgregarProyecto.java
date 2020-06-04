@@ -17,7 +17,7 @@ import java.util.Calendar;
 
 public class AgregarProyecto extends AppCompatActivity {
     EditText edTxtNombreP, edTxtMateriaP, edTxtDescripcionP, edTxtDiaP, edTxtMesP, edTxtAnoP, edTxtHoraP, edTxtMinP;
-    Button btnGuardarP;
+    Button btnGuardarP, btnInicio, btnAgregar, btnMostrar, btnBuscar;
     Button btnGuardarN;
     NotificationManager manager;
 
@@ -36,6 +36,12 @@ public class AgregarProyecto extends AppCompatActivity {
         edTxtMinP = findViewById(R.id.edTxtMinT);
         btnGuardarP = findViewById(R.id.btnGuardarP);
         btnGuardarN = findViewById(R.id.btnGuardarN);
+
+        btnInicio = findViewById(R.id.btnInicio);
+        btnAgregar = findViewById(R.id.btnAgregar);
+        btnMostrar = findViewById(R.id.btnMostrar);
+        btnBuscar = findViewById(R.id.btnBuscar);
+
         manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         final DBSQLite objDB = new DBSQLite(getApplicationContext());
@@ -120,6 +126,40 @@ public class AgregarProyecto extends AppCompatActivity {
                     finish();
 
                 }
+            }
+        });
+        btnInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Inicio.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnMostrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Mostrar.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Buscar.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Agregar.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

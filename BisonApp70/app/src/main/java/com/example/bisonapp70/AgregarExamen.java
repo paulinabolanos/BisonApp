@@ -19,8 +19,7 @@ import java.util.Calendar;
 
 public class AgregarExamen extends AppCompatActivity {
     EditText edTxtNombreE, edTxtMateriaE, edTxtDescripcionE, edTxtDiaE, edTxtMesE, edTxtAnoE, edTxtHoraE, edTxtMinE;
-    Button btnGuardarE;
-    Button btnGuardarN;
+    Button btnGuardarE, btnGuardarN, btnInicio, btnAgregar, btnMostrar, btnBuscar;
     NotificationManager manager;
 
     @Override
@@ -38,6 +37,11 @@ public class AgregarExamen extends AppCompatActivity {
         btnGuardarE = findViewById(R.id.btnGuardarT);
         btnGuardarN = findViewById(R.id.btnGuardarN);
         edTxtMinE = findViewById(R.id.edTxtMinT);
+
+        btnInicio = findViewById(R.id.btnInicio);
+        btnAgregar = findViewById(R.id.btnAgregar);
+        btnMostrar = findViewById(R.id.btnMostrar);
+        btnBuscar = findViewById(R.id.btnBuscar);
 
         manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
@@ -127,6 +131,40 @@ public class AgregarExamen extends AppCompatActivity {
 
                 }
 
+            }
+        });
+        btnInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Inicio.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnMostrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Mostrar.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Buscar.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), Agregar.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

@@ -44,6 +44,7 @@ public class Buscar extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Inicio.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -52,6 +53,7 @@ public class Buscar extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Agregar.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -60,6 +62,7 @@ public class Buscar extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Mostrar.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnBuscarActividad.setOnClickListener(new View.OnClickListener() {
