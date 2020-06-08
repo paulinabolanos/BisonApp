@@ -2,10 +2,12 @@ package com.example.bisonapp70;
 
 import android.widget.ImageView;
 
+//Clase que nos sirve para representar a la actividad y sus datos
 public class TareasModelo {
+    //Variabes necesarias que son los datos de las actividades
     String actividad, nombre, materia, descripcion, dia, mes, ano, hora;
 
-
+    //Contructores
     public TareasModelo() {
     }
 
@@ -21,6 +23,7 @@ public class TareasModelo {
         this.hora = hora;
     }
 
+    //Metodos Get and set
     public String getActividad() {
         return actividad;
     }

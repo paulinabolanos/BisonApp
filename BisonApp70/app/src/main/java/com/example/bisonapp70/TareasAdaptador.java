@@ -14,16 +14,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+//Esta clase tiene la funcion de comunicar al reclyclerView de nuestro layout la cantidad de informacion que se utilizara para llenar cada item de nuestra ista
+//Actua como un puiente entre la informacion y la presentacion a mostrar
+//Se crea el sdaptador a traves de "RecyclerView.Adapter<TareasAdaptador.ViewHolder>"
 public class TareasAdaptador extends RecyclerView.Adapter<TareasAdaptador.ViewHolder>  {
-
-
+//Los adaptadores para el RecyclerView deben de contener una clase interna que extienda de "RecyclerView.ViewHolder"
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        //Se crean las variables necesarias
         private TextView txtVwActividad, txtVwNombre,txtVwMateria, txtVwDescripcion, txtVwDia, txtVwMes, txtVwAno, txtVwHora;
-        Button btnEditar, btnEliminar;
+
         Context context;
         ImageView imgVw;
+        //Metodo constructor de la clase interna y vinculamos cada una de los elementos
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -42,14 +46,18 @@ public class TareasAdaptador extends RecyclerView.Adapter<TareasAdaptador.ViewHo
 
 
     }
+    //Creamos una variable tipo lista para almacenar todos los datos mostrados en cada item
     public List<TareasModelo> tareaLista;
 
+    //Metodo constructos del adapotador el cual recibira como parametro la lista creada
     public  TareasAdaptador (List<TareasModelo> tareaLista){
         this.tareaLista = tareaLista;
     }
 
     @NonNull
     @Override
+    //El siguiente metodo es el encargado de inflar el contenido de un nuevo item para la lista
+    //Inflar -- procedimiento que se realiza para hacer uso de un layout dentro de otro layout
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.actividad, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
@@ -61,6 +69,7 @@ public class TareasAdaptador extends RecyclerView.Adapter<TareasAdaptador.ViewHo
     }
 
     @Override
+    //Este metodo realiza las modificaciones del contenido para cada item
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.txtVwActividad.setText(tareaLista.get(position).getActividad());
         holder.txtVwNombre.setText(tareaLista.get(position).getNombre());
@@ -83,7 +92,7 @@ public class TareasAdaptador extends RecyclerView.Adapter<TareasAdaptador.ViewHo
 
     }
 
-
+    //metodo que le permite determinar al adaptador la candidad de elementos que se procesaran
     @Override
     public int getItemCount() {
         return tareaLista.size();

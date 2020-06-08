@@ -22,6 +22,7 @@ public class Agregar extends AppCompatActivity {
         btnMostrar = findViewById(R.id.btnMostrar);
         btnBuscar = findViewById(R.id.btnBuscar);
 
+        //Cada boton tiene un evento click que nos manda hacia otra actividad
         btnAgregarTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

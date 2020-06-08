@@ -45,6 +45,8 @@ public class AgregarExamen extends AppCompatActivity {
 
         manager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
+        /*Creamos una instancia de la clase "DBSQLite" para hacer uso de los metodos de esa clase,
+        los cuales nos permiten dar mantenimiento a la base de datos SQLite*/
         final DBSQLite objDB = new DBSQLite(getApplicationContext());
 
         btnGuardarE.setOnClickListener(new View.OnClickListener() {
@@ -52,18 +54,25 @@ public class AgregarExamen extends AppCompatActivity {
             String actividad = "examen";
             @Override
             public void onClick(View v) {
+                //Verificamos si todos los campos fueron llenados
                 if(edTxtNombreE.getText().toString().equals("")  || edTxtMateriaE.getText().toString().equals("") ||
                         edTxtDescripcionE.getText().toString().equals("")||
                         edTxtDiaE.getText().toString().equals("")||
                         edTxtMesE.getText().toString().equals("")||
                         edTxtAnoE.getText().toString().equals("")||edTxtHoraE.getText().toString().equals("")){
+                    //Agregamos una notificación Toast para inficar que faltan campos por llenar
                     Toast.makeText(getApplicationContext(), "Faltan campos por llenar", Toast.LENGTH_SHORT).show();
                 }else{
+                    /*Mediante la instancia creada anteriormente llamamos al metodo "agregarActividad()"
+                    y dentro de este colocamos los objetos de tipo EditText que se encargan de
+                    obtener los datos que se coloquen en el Layout.*/
                     objDB.agregarActividad( edTxtNombreE.getText().toString(), noControl,edTxtMateriaE.getText().toString(),
                             edTxtDescripcionE.getText().toString(), actividad, edTxtDiaE.getText().toString(), edTxtMesE.getText().toString()
                             , edTxtAnoE.getText().toString(), edTxtHoraE.getText().toString());
+                    //Agregamos una notificación Toast para ver si los datos fueron agregados correctamente.
                     Toast.makeText(getApplicationContext(), "Se agregó correctamente", Toast.LENGTH_SHORT).show();
 
+                    //Vaciamos los EditText
                     edTxtNombreE.setText("");
                     edTxtMateriaE.setText("");
                     edTxtDescripcionE.setText("");
@@ -72,6 +81,7 @@ public class AgregarExamen extends AppCompatActivity {
                     edTxtAnoE.setText("");
                     edTxtHoraE.setText("");
 
+                    //Finalizamos la actividad
                     finish();
 
                 }
@@ -133,6 +143,7 @@ public class AgregarExamen extends AppCompatActivity {
 
             }
         });
+        //Cada boton tiene un evento click que nos manda hacia otra actividad
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

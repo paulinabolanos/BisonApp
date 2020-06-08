@@ -121,28 +121,38 @@ public class DBSQLite extends SQLiteOpenHelper {
         return tareas;
     }
 
+    //Metodo para editar una actividad
     public void editarTarea (String nombre, String materia, String descripcion, String dia, String mes, String ano, String hora){
         SQLiteDatabase db = getWritableDatabase();
         if(db != null){
+            //Consulta update agregandole los parametros requeridos
             db.execSQL("update actividades set nombre='" + nombre + "',materia ='" + materia + "',descripcion ='" + descripcion +
                     "',dia ='" + dia +  "',mes ='" + mes +  "',ano ='" + ano +
                     "',hora ='" + hora + "'where nombre = '" + nombre + "'");
             db.close();
         }
     }
+    //Metodo para eliminar actividades
+    //Requiere como unico campo el nombre
     public void eliminarTarea (String nombre){
         SQLiteDatabase db = getWritableDatabase();
         if(db != null){
+            //consulta SQLite "delete", agregandole el parametro "nombre" para ubicar el registro en la tabla
             db.execSQL("delete from actividades where nombre ='" + nombre + "'");
             db.close();
         }
     }
 
+    //Metodo para buscar una actividad registrada en nuestra base de datos
+    //Dos parametros, el primero para almacenar los datos encontrados y el segundo para la busqueda de la actividad
     public void buscarActividad(TareasModelo actividades, String nombre){
         SQLiteDatabase db = getReadableDatabase();
+        //Declaramos que la busqueda se realice por medio del campo "nombre"
         Cursor cursor = db.rawQuery("select * from actividades where nombre ='" + nombre + "'" , null);
         if(cursor.moveToFirst()){
             do{
+                //Agregamos los valores encontrados de la busqueda a los campos de la entidad "TareasModelo"
+                //para devolverlos como resultados de la busqueda que se realice
                 actividades.setMateria(cursor.getString(2));
                 actividades.setDescripcion(cursor.getString(3));
                 actividades.setActividad(cursor.getString(4));

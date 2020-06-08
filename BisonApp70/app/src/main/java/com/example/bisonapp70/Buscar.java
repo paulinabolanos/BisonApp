@@ -37,8 +37,11 @@ public class Buscar extends AppCompatActivity {
 
         txtVwActividadB = findViewById(R.id.txtVwActividadB);
 
+        /*Creamos una instancia de la clase "DBSQLite" para hacer uso de los metodos de esa clase,
+        los cuales nos permiten dar mantenimiento a la base de datos SQLite*/
         final DBSQLite objDB = new DBSQLite(getApplicationContext());
 
+        //Cada boton tiene un evento click que nos manda hacia otra actividad
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,11 +68,15 @@ public class Buscar extends AppCompatActivity {
                 finish();
             }
         });
+        //Evento click en nuestro boton para buscar una actividad
         btnBuscarActividad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Creamos una instancia de la clase "TareasModelo"
                 TareasModelo actividad = new TareasModelo();
+                //Invocamos el metodo "buscarActividad()" y e damos como parametros la insrancia y el nombre a buscar
                 objDB.buscarActividad(actividad, edTxtNombreB.getText().toString());
+                //A cada uno de los EditText le agregamos cada uno de los campos solicitados por la busqueda
                 txtVwActividadB.setText(actividad.getActividad());
                 edTxtMateriaB.setText(actividad.getMateria());
                 edTxtDescripcionB.setText(actividad.getDescripcion());
@@ -83,8 +90,10 @@ public class Buscar extends AppCompatActivity {
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Llamamos al metodo "editarTarea! creado en la clase "DBSQLite" y le damos como parametros el nombre... a modificar
                 objDB.editarTarea(edTxtNombreB.getText().toString(), edTxtMateriaB.getText().toString(), edTxtDescripcionB.getText().toString(),
                         edTxtDiaB.getText().toString(), edTxtMesB.getText().toString(), edTxtAnoB.getText().toString(), edTxtHoraB.getText().toString());
+                //Notificacion tipo Toas para confirmar que los datos fueron mofdificacos correctamente
                 Toast.makeText(getApplicationContext(), "Los datos se modificaron", Toast.LENGTH_SHORT).show();
             }
         });
@@ -92,7 +101,9 @@ public class Buscar extends AppCompatActivity {
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Llamamos al metodo "eliminarTarea" y le damos como parametro el nombre de la actividad que se borará
                 objDB.eliminarTarea(edTxtNombreB.getText().toString());
+                //Agregamos una notificacion tipo Toast para confirmar que los datos fueron eliminados correctamente
                 Toast.makeText(getApplicationContext(), "El dato se borró", Toast.LENGTH_SHORT).show();
             }
         });

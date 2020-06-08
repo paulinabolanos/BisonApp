@@ -11,6 +11,7 @@ import android.widget.Button;
 
 //Necesario importar las librerias para utilizar "RecyclerView"
 public class Mostrar extends AppCompatActivity {
+    //Creamos una instancia del RecyclerView y otra del adaptador
     private RecyclerView recVw;
     private TareasAdaptador tareasAdaptador;
     Button btnInicio, btnAgregar, btnBuscar;
@@ -20,7 +21,9 @@ public class Mostrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar);
 
+        //Vinculamos nuestra instancia RecyclerView con el RecyclerViw de nuestro Layout
         recVw = findViewById(R.id.recVw);
+        //Dwefinimos la forma de la lista, en este caso, vertical, similar a la de un listView
         recVw.setLayoutManager(new LinearLayoutManager(this));
 
         //Creamos una instancia de la clase "DBSQLite" para hacer uso de los metodos de la clase
@@ -33,6 +36,7 @@ public class Mostrar extends AppCompatActivity {
 
 
 
+        //Asignamos la informacion en el RecyvclerView de nuestro Layout
         recVw.setAdapter(tareasAdaptador);
 
         btnInicio = findViewById(R.id.btnInicio);
